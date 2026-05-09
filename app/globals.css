@@ -40,6 +40,7 @@ main {
   overflow: hidden;
 }
 
+.company-hero,
 .hero {
   position: relative;
   min-height: 100vh;
@@ -50,6 +51,22 @@ main {
     linear-gradient(135deg, #d6c6ad 0%, var(--sand) 45%, #efe5d5 100%);
 }
 
+.company-hero {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #f7f1e8 0%, #f4ecdf 58%, #faf6ee 100%);
+}
+
+.game-hero {
+  min-height: auto;
+  padding-top: 44px;
+  padding-bottom: 64px;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(59, 134, 133, 0.16), transparent 30%),
+    linear-gradient(180deg, #fffaf2 0%, #f4ede3 58%, #edf5f2 100%);
+}
+
+.company-hero::after,
 .hero::after {
   position: absolute;
   right: -130px;
@@ -61,6 +78,7 @@ main {
   content: "";
 }
 
+.company-hero::before,
 .hero::before {
   position: absolute;
   inset: 0;
@@ -70,6 +88,28 @@ main {
   background-size: 72px 72px;
   content: "";
   mask-image: linear-gradient(90deg, #000 0%, transparent 82%);
+}
+
+.game-hero::before {
+  background-image:
+    linear-gradient(rgba(59, 134, 133, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 134, 133, 0.028) 1px, transparent 1px);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, transparent 92%);
+}
+
+.game-hero::after {
+  border-color: rgba(59, 134, 133, 0.12);
+}
+
+.company-hero::before {
+  opacity: 0.18;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+}
+
+.company-hero::after {
+  right: -240px;
+  bottom: -260px;
+  border-color: rgba(59, 134, 133, 0.08);
 }
 
 .nav,
@@ -123,7 +163,7 @@ main {
   gap: clamp(16px, 4vw, 34px);
   color: rgba(17, 24, 23, 0.72);
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .language-switch {
@@ -144,8 +184,8 @@ main {
   color: rgba(17, 24, 23, 0.64);
   cursor: pointer;
   font: inherit;
-  font-size: 0.78rem;
-  font-weight: 900;
+  font-size: 0.72rem;
+  font-weight: 800;
 }
 
 .language-switch button:focus-visible {
@@ -171,6 +211,10 @@ main {
   max-width: 650px;
 }
 
+.game-hero .hero-copy {
+  max-width: 610px;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -178,7 +222,7 @@ main {
   margin: 0 0 18px;
   color: var(--teal-dark);
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -192,15 +236,26 @@ p {
 h1 {
   max-width: 6ch;
   margin-bottom: 18px;
-  font-size: clamp(5.3rem, 15vw, 12rem);
-  line-height: 0.78;
+  font-size: clamp(3.8rem, 9vw, 7.4rem);
+  line-height: 0.9;
   letter-spacing: 0;
+}
+
+.game-hero h1 {
+  max-width: 8ch;
+  margin-bottom: 22px;
+  font-size: clamp(3.2rem, 6.2vw, 5.6rem);
+  line-height: 0.95;
+}
+
+.game-title {
+  white-space: nowrap;
 }
 
 h2 {
   margin-bottom: 14px;
-  font-size: clamp(2.1rem, 5vw, 4.8rem);
-  line-height: 0.95;
+  font-size: clamp(1.85rem, 3.6vw, 3.35rem);
+  line-height: 1.06;
   letter-spacing: 0;
 }
 
@@ -209,6 +264,23 @@ h2 {
   color: rgba(17, 24, 23, 0.74);
   font-size: clamp(1.1rem, 2vw, 1.42rem);
   line-height: 1.5;
+}
+
+.game-hero .eyebrow {
+  padding: 8px 12px;
+  border: 1px solid rgba(59, 134, 133, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.66);
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.game-hero .hero-lead {
+  max-width: 560px;
+  font-size: clamp(1.04rem, 1.55vw, 1.22rem);
+  line-height: 1.68;
 }
 
 .mode-row {
@@ -313,9 +385,9 @@ h2 {
 
 .screen-caption span {
   color: var(--teal-dark);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 900;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .screen-caption strong {
@@ -327,7 +399,7 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   width: min(1180px, calc(100% - 40px));
-  padding: 72px 0 34px;
+  padding: 42px 0 76px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -350,8 +422,8 @@ h2 {
 
 .highlight-strip h2 {
   margin-bottom: 7px;
-  font-size: 1.22rem;
-  line-height: 1.1;
+  font-size: 1.05rem;
+  line-height: 1.18;
 }
 
 .highlight-strip p {
@@ -378,11 +450,42 @@ h2 {
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.64fr);
   gap: clamp(42px, 8vw, 112px);
   align-items: start;
+  padding-bottom: 76px;
+}
+
+.studio-section-first {
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.56fr);
+  min-height: calc(100vh - 70px);
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+  padding-top: 72px;
+  padding-bottom: 72px;
+  border-bottom: 0;
 }
 
 .studio-section .eyebrow,
 .release-section .eyebrow {
   color: var(--teal);
+}
+
+.studio-section-first .eyebrow {
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--teal-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.studio-section-first .eyebrow::after {
+  display: block;
+  width: 38px;
+  height: 1px;
+  background: rgba(59, 134, 133, 0.42);
+  content: "";
 }
 
 .studio-copy {
@@ -392,14 +495,28 @@ h2 {
 .studio-copy h2 {
   max-width: 690px;
   margin-bottom: 24px;
-  font-size: clamp(2.65rem, 4.05vw, 4.05rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.12;
+}
+
+.studio-section-first .studio-copy h2 {
+  max-width: 620px;
+  margin-bottom: 30px;
+  font-size: clamp(1.72rem, 2.25vw, 2.34rem);
+  line-height: 1.2;
 }
 
 .studio-copy p {
   max-width: 610px;
   font-size: 1.08rem;
   line-height: 1.68;
+}
+
+.studio-section-first .studio-copy p {
+  max-width: 620px;
+  color: rgba(17, 24, 23, 0.66);
+  font-size: 1.02rem;
+  line-height: 1.78;
 }
 
 .studio-copy p + p {
@@ -422,8 +539,56 @@ h2 {
   background: rgba(255, 250, 242, 0.42);
   box-shadow: 0 14px 38px rgba(17, 24, 23, 0.025);
   font-size: 0.98rem;
-  font-weight: 800;
+  font-weight: 760;
   line-height: 1.32;
+}
+
+.company-panel {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid rgba(17, 24, 23, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 250, 242, 0.6);
+  box-shadow: 0 20px 56px rgba(17, 24, 23, 0.06);
+}
+
+.company-panel-head {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 8px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(17, 24, 23, 0.08);
+}
+
+.company-panel-head span {
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.company-panel-head strong {
+  color: var(--ink);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.12;
+}
+
+.studio-section-first .principle {
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(17, 24, 23, 0.07);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(17, 24, 23, 0.82);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.46;
+}
+
+.studio-section-first .principle:last-child {
+  border-bottom: 0;
+  padding-bottom: 2px;
 }
 
 .principle svg {
@@ -444,8 +609,8 @@ h2 {
 .release-section h2 {
   margin-bottom: 16px;
   max-width: 760px;
-  font-size: clamp(2.55rem, 4.2vw, 4.2rem);
-  line-height: 1;
+  font-size: clamp(2rem, 3.2vw, 3.05rem);
+  line-height: 1.12;
 }
 
 .release-copy {
@@ -526,6 +691,7 @@ h2 {
 }
 
 @media (max-width: 900px) {
+  .company-hero,
   .hero {
     min-height: auto;
   }
@@ -537,14 +703,19 @@ h2 {
     padding: 72px 0 32px;
   }
 
+  .studio-section-first {
+    padding-top: 72px;
+    padding-bottom: 36px;
+  }
+
   .game-scene {
     min-height: 590px;
   }
 
   .highlight-strip {
     grid-template-columns: 1fr;
-    padding-top: 52px;
-    padding-bottom: 28px;
+    padding-top: 20px;
+    padding-bottom: 64px;
   }
 
   .release-section,
@@ -587,12 +758,17 @@ h2 {
   }
 
   h1 {
-    font-size: clamp(4.6rem, 24vw, 6.5rem);
+    font-size: clamp(3.3rem, 17vw, 5rem);
+  }
+
+  .game-hero h1 {
+    font-size: clamp(3rem, 14vw, 4.35rem);
+    line-height: 0.98;
   }
 
   h2 {
-    font-size: 2.26rem;
-    line-height: 1.02;
+    font-size: 1.9rem;
+    line-height: 1.12;
   }
 
   .primary-button,
@@ -659,18 +835,27 @@ h2 {
     padding-bottom: 76px;
   }
 
+  .studio-section {
+    padding-bottom: 52px;
+  }
+
   .studio-copy p {
     font-size: 1rem;
   }
 
   .studio-copy h2 {
-    font-size: 2.12rem;
-    line-height: 1.04;
+    font-size: 1.86rem;
+    line-height: 1.14;
+  }
+
+  .studio-section-first .studio-copy h2 {
+    font-size: 1.72rem;
+    line-height: 1.18;
   }
 
   .release-section h2 {
-    font-size: 2.14rem;
-    line-height: 1.04;
+    font-size: 1.86rem;
+    line-height: 1.14;
   }
 
   .highlight-strip article {

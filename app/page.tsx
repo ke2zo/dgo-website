@@ -13,12 +13,13 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 
-type Language = "ru" | "en" | "kz";
+type Language = "ru" | "kz" | "uz" | "en";
 
 const languages: Array<{ code: Language; label: string }> = [
   { code: "ru", label: "RU" },
-  { code: "en", label: "EN" },
   { code: "kz", label: "KZ" },
+  { code: "uz", label: "UZ" },
+  { code: "en", label: "EN" },
 ];
 
 const storeLinks = {
@@ -31,13 +32,13 @@ const companyIcons = [Gamepad2, ShieldCheck, UsersRound];
 const copy = {
   ru: {
     nav: {
+      studio: "Компания",
       game: "Игра",
-      studio: "Студия",
       download: "Скачать",
       aria: "Главная навигация",
     },
     hero: {
-      eyebrow: "mobile card game studio",
+      eyebrow: "Мобильная карточная игра",
       lead: "Быстрый онлайн-Дурак для мобильных игроков: классические правила, честные столы и партии, которые запускаются за пару касаний.",
       modes: ["Подкидной", "Переводной", "2-6 игроков"],
       download: "Скачать игру",
@@ -48,29 +49,29 @@ const copy = {
     },
     facts: [
       {
-        title: "Durak Go Studio",
-        text: "Разрабатываем мобильные карточные игры с быстрым входом и понятным онлайн-столом.",
+        title: "Мобильная разработка",
+        text: "DinqPlay Limited создает карточные игры с быстрым входом, понятной логикой и стабильным онлайн-столом.",
       },
       {
-        title: "Честные партии",
-        text: "Сохраняем классические правила Дурака и аккуратно переносим их в цифровой формат.",
+        title: "Классика в цифре",
+        text: "Мы сохраняем узнаваемые правила Дурака и аккуратно переносим их в современный мобильный формат.",
       },
       {
-        title: "Для игроков",
-        text: "Делаем продукт для коротких сессий, игры с друзьями и спокойного соревнования.",
+        title: "Для живой игры",
+        text: "Durak Go рассчитана на короткие партии, игру с друзьями и спокойное онлайн-соревнование.",
       },
     ],
     studio: {
       eyebrow: "О компании",
-      title: "Durak Go - студия вокруг современной карточной игры.",
+      title: "DinqPlay Limited создает мобильные карточные игры.",
       paragraphs: [
-        "Мы переносим привычную культуру игры в Дурака в мобильный формат: быстрые онлайн-партии, чистый интерфейс и понятную логику стола.",
-        "Наша задача - сделать игру, в которую легко вернуться в любой момент: дома, в дороге или между делами.",
+        "Наш основной проект - Durak Go, онлайн-игра в Дурака для iOS и Android. Мы развиваем ее как понятный, быстрый и аккуратный мобильный продукт.",
+        "Команда фокусируется на чистом интерфейсе, стабильной игре за онлайн-столом и привычных правилах, которые легко узнать с первой партии.",
       ],
       principles: [
-        "Развиваем знакомую карточную механику без лишней аркады.",
-        "Проектируем интерфейс так, чтобы партия удобно игралась с телефона.",
-        "Собираем вокруг игры онлайн-столы, рейтинги и регулярные события.",
+        "Проектируем Durak Go вокруг классической карточной механики без лишней аркады.",
+        "Развиваем интерфейс и онлайн-столы так, чтобы партия удобно игралась с телефона.",
+        "Поддерживаем игру на iOS и Android через официальные магазины приложений.",
       ],
     },
     release: {
@@ -80,17 +81,17 @@ const copy = {
       googleSmall: "Доступно в",
       appleSmall: "Загрузите в",
     },
-    footer: "Mobile card game company",
+    footer: "DinqPlay Limited",
   },
   en: {
     nav: {
+      studio: "Company",
       game: "Game",
-      studio: "Studio",
       download: "Download",
       aria: "Main navigation",
     },
     hero: {
-      eyebrow: "mobile card game studio",
+      eyebrow: "Mobile card game",
       lead: "Fast online Durak for mobile players: classic rules, fair tables, and matches that start in just a few taps.",
       modes: ["Throw-in", "Transfer", "2-6 players"],
       download: "Download game",
@@ -101,29 +102,29 @@ const copy = {
     },
     facts: [
       {
-        title: "Durak Go Studio",
-        text: "We build mobile card games with quick entry, clear rules, and live online tables.",
+        title: "Mobile development",
+        text: "DinqPlay Limited builds card games with quick entry, clear table logic, and stable online play.",
       },
       {
-        title: "Fair matches",
-        text: "We keep the classic rules of Durak and carefully bring them into a digital format.",
+        title: "Classic in digital",
+        text: "We keep the recognizable rules of Durak and carefully bring them into a modern mobile format.",
       },
       {
-        title: "Made for players",
-        text: "Durak Go is built for short sessions, friendly games, and calm competition.",
+        title: "Built for play",
+        text: "Durak Go is made for short matches, games with friends, and calm online competition.",
       },
     ],
     studio: {
       eyebrow: "About company",
-      title: "Durak Go is a studio built around a modern card game.",
+      title: "DinqPlay Limited creates mobile card games.",
       paragraphs: [
-        "We bring the familiar culture of Durak to mobile: fast online matches, a clean interface, and clear table logic.",
-        "Our goal is to make a game players can return to at any moment: at home, on the go, or between daily tasks.",
+        "Our main project is Durak Go, an online Durak game for iOS and Android. We develop it as a clear, fast, and carefully designed mobile product.",
+        "The team focuses on a clean interface, stable online tables, and familiar rules that players can understand from the first match.",
       ],
       principles: [
-        "We develop familiar card mechanics without unnecessary arcade layers.",
-        "We design the interface so each match feels natural on a phone.",
-        "We build online tables, rankings, and regular events around the game.",
+        "We design Durak Go around classic card mechanics without unnecessary arcade layers.",
+        "We develop the interface and online tables so each match feels natural on a phone.",
+        "We support the game on iOS and Android through the official app stores.",
       ],
     },
     release: {
@@ -133,17 +134,17 @@ const copy = {
       googleSmall: "Available on",
       appleSmall: "Download on the",
     },
-    footer: "Mobile card game company",
+    footer: "DinqPlay Limited",
   },
   kz: {
     nav: {
+      studio: "Компания",
       game: "Ойын",
-      studio: "Студия",
       download: "Жүктеу",
       aria: "Негізгі навигация",
     },
     hero: {
-      eyebrow: "mobile card game studio",
+      eyebrow: "Мобильді карта ойыны",
       lead: "Мобильді ойыншыларға арналған жылдам онлайн Дурак: классикалық ережелер, әділ үстелдер және бірнеше түртумен басталатын партиялар.",
       modes: ["Подкидной", "Ауыспалы", "2-6 ойыншы"],
       download: "Ойынды жүктеу",
@@ -154,29 +155,29 @@ const copy = {
     },
     facts: [
       {
-        title: "Durak Go Studio",
-        text: "Біз жылдам кіруі, түсінікті ережелері және онлайн үстелі бар мобильді карта ойындарын жасаймыз.",
+        title: "Мобильді әзірлеу",
+        text: "DinqPlay Limited жылдам кіруі, түсінікті үстел логикасы және тұрақты онлайн ойыны бар карта ойындарын жасайды.",
       },
       {
-        title: "Әділ партиялар",
-        text: "Дурактың классикалық ережелерін сақтап, оларды цифрлық форматқа мұқият көшіреміз.",
+        title: "Классика цифрда",
+        text: "Біз Дурактың таныс ережелерін сақтап, оларды заманауи мобильді форматқа мұқият көшіреміз.",
       },
       {
-        title: "Ойыншылар үшін",
-        text: "Durak Go қысқа сессияларға, достармен ойнауға және тыныш бәсекеге арналған.",
+        title: "Ойын үшін жасалған",
+        text: "Durak Go қысқа партияларға, достармен ойнауға және тыныш онлайн бәсекеге арналған.",
       },
     ],
     studio: {
       eyebrow: "Компания туралы",
-      title: "Durak Go - заманауи карта ойынына негізделген студия.",
+      title: "DinqPlay Limited мобильді карта ойындарын жасайды.",
       paragraphs: [
-        "Біз Дурак ойынының таныс мәдениетін мобильді форматқа көшіреміз: жылдам онлайн партиялар, таза интерфейс және түсінікті үстел логикасы.",
-        "Мақсатымыз - ойыншылар кез келген сәтте қайта орала алатын ойын жасау: үйде, жолда немесе күнделікті істер арасында.",
+        "Негізгі жобамыз - iOS және Android жүйелеріне арналған онлайн Durak Go ойыны. Біз оны түсінікті, жылдам және мұқият жасалған мобильді өнім ретінде дамытамыз.",
+        "Команда таза интерфейске, тұрақты онлайн үстелдерге және ойыншылар бірінші партиядан-ақ түсінетін таныс ережелерге назар аударады.",
       ],
       principles: [
-        "Таныс карта механикасын артық аркадасыз дамытамыз.",
-        "Партия телефонда ыңғайлы ойналуы үшін интерфейсті мұқият жобалаймыз.",
-        "Ойын айналасында онлайн үстелдер, рейтингтер және тұрақты оқиғалар құрамыз.",
+        "Durak Go ойынын классикалық карта механикасына сүйеніп, артық аркадасыз жобалаймыз.",
+        "Партия телефонда табиғи ойналуы үшін интерфейс пен онлайн үстелдерді дамытамыз.",
+        "Ойынды ресми дүкендер арқылы iOS және Android жүйелерінде қолдаймыз.",
       ],
     },
     release: {
@@ -186,7 +187,60 @@ const copy = {
       googleSmall: "Қолжетімді",
       appleSmall: "Жүктеп алу",
     },
-    footer: "Мобильді карта ойындары компаниясы",
+    footer: "DinqPlay Limited",
+  },
+  uz: {
+    nav: {
+      studio: "Kompaniya",
+      game: "O'yin",
+      download: "Yuklab olish",
+      aria: "Asosiy navigatsiya",
+    },
+    hero: {
+      eyebrow: "Mobil karta o'yini",
+      lead: "Mobil o'yinchilar uchun tezkor onlayn Durak: klassik qoidalar, adolatli stollar va bir necha bosishda boshlanadigan partiyalar.",
+      modes: ["Podkidnoy", "Perevodnoy", "2-6 o'yinchi"],
+      download: "O'yinni yuklab olish",
+      watch: "O'yinni ko'rish",
+      scene: "Durak Go o'yin jarayoni skrinshoti",
+      screenshotAlt: "Durak Go mobil o'yinidagi partiya skrinshoti",
+      captionLabel: "O'yin jarayoni",
+    },
+    facts: [
+      {
+        title: "Mobil ishlab chiqish",
+        text: "DinqPlay Limited tez kirish, tushunarli stol mantiqi va barqaror onlayn o'yinga ega karta o'yinlarini yaratadi.",
+      },
+      {
+        title: "Klassika raqamli formatda",
+        text: "Biz Durakning tanish qoidalarini saqlab, ularni zamonaviy mobil formatga ehtiyotkorlik bilan o'tkazamiz.",
+      },
+      {
+        title: "Jonli o'yin uchun",
+        text: "Durak Go qisqa partiyalar, do'stlar bilan o'ynash va sokin onlayn raqobat uchun yaratilgan.",
+      },
+    ],
+    studio: {
+      eyebrow: "Kompaniya haqida",
+      title: "DinqPlay Limited mobil karta o'yinlarini yaratadi.",
+      paragraphs: [
+        "Asosiy loyihamiz - iOS va Android uchun onlayn Durak Go o'yini. Biz uni tushunarli, tezkor va puxta ishlangan mobil mahsulot sifatida rivojlantiramiz.",
+        "Jamoa toza interfeys, barqaror onlayn stollar va o'yinchi birinchi partiyadanoq tushunadigan tanish qoidalarga e'tibor qaratadi.",
+      ],
+      principles: [
+        "Durak Go klassik karta mexanikasi asosida, ortiqcha arkadasiz loyihalanadi.",
+        "Partiya telefonda tabiiy o'ynalishi uchun interfeys va onlayn stollarni rivojlantiramiz.",
+        "O'yinni rasmiy do'konlar orqali iOS va Android tizimlarida qo'llab-quvvatlaymiz.",
+      ],
+    },
+    release: {
+      eyebrow: "Qayerdan yuklab olish mumkin",
+      title: "Durak Go iOS va Android uchun mavjud",
+      text: "O'yinni rasmiy do'kondan o'rnating va stolga qo'shiling: podkidnoy va perevodnoy Durak App Store va Google Play orqali smartfonlarda mavjud.",
+      googleSmall: "Mavjud",
+      appleSmall: "Yuklab olish",
+    },
+    footer: "DinqPlay Limited",
   },
 };
 
@@ -196,7 +250,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="hero" id="top">
+      <section className="company-hero" id="top">
         <nav className="nav" aria-label={t.nav.aria}>
           <a className="brand" href="#top" aria-label="Durak Go">
             <span className="brand-mark">
@@ -211,8 +265,8 @@ export default function Home() {
             <span>Durak Go</span>
           </a>
           <div className="nav-links">
-            <a href="#game">{t.nav.game}</a>
             <a href="#studio">{t.nav.studio}</a>
+            <a href="#game">{t.nav.game}</a>
             <a href="#release">{t.nav.download}</a>
           </div>
           <div className="language-switch" aria-label="Language switcher">
@@ -230,13 +284,37 @@ export default function Home() {
           </div>
         </nav>
 
+        <section className="studio-section studio-section-first" id="studio">
+          <div className="studio-copy">
+            <p className="eyebrow">{t.studio.eyebrow}</p>
+            <h2>{t.studio.title}</h2>
+            {t.studio.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="company-panel">
+            <div className="company-panel-head">
+              <span>{t.nav.studio}</span>
+              <strong>DinqPlay Limited</strong>
+            </div>
+            {t.studio.principles.map((item) => (
+              <div className="principle" key={item}>
+                <BadgeCheck size={21} aria-hidden="true" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </section>
+
+      <section className="hero game-hero" id="game">
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">
               <Sparkles size={16} aria-hidden="true" />
               {t.hero.eyebrow}
             </p>
-            <h1>Durak Go</h1>
+            <h1 className="game-title">Durak Go</h1>
             <p className="hero-lead">{t.hero.lead}</p>
             <div className="mode-row" aria-label={t.nav.game}>
               {t.hero.modes.map((mode) => (
@@ -273,7 +351,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="highlight-strip" id="game">
+      <section className="highlight-strip" id="features">
         {t.facts.map((item, index) => {
           const Icon = companyIcons[index];
 
@@ -287,24 +365,6 @@ export default function Home() {
             </article>
           );
         })}
-      </section>
-
-      <section className="studio-section" id="studio">
-        <div className="studio-copy">
-          <p className="eyebrow">{t.studio.eyebrow}</p>
-          <h2>{t.studio.title}</h2>
-          {t.studio.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-        <div className="principles">
-          {t.studio.principles.map((item) => (
-            <div className="principle" key={item}>
-              <BadgeCheck size={21} aria-hidden="true" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="release-section" id="release">
