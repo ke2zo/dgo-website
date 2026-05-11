@@ -1,33 +1,23 @@
-"use client";
+const languages = ["ru", "kz", "uz", "en"];
 
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  Download,
-  Gamepad2,
-  ShieldCheck,
-  Sparkles,
-  Swords,
-  UsersRound,
-} from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
-
-type Language = "ru" | "kz" | "uz" | "en";
-
-const languages: Array<{ code: Language; label: string }> = [
-  { code: "ru", label: "RU" },
-  { code: "kz", label: "KZ" },
-  { code: "uz", label: "UZ" },
-  { code: "en", label: "EN" },
-];
-
-const storeLinks = {
-  googlePlay: "https://play.google.com/store/apps/details?id=com.durakgo.game",
-  appStore: "https://apps.apple.com/kz/app/durak-go/id6762427053",
+const icons = {
+  "arrow-up-right":
+    '<svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>',
+  check:
+    '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/><path d="M21 12a9 9 0 1 1-5.3-8.2"/></svg>',
+  download:
+    '<svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
+  gamepad:
+    '<svg viewBox="0 0 24 24"><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/><path d="M5 7h14a3 3 0 0 1 3 3v4.5a3.5 3.5 0 0 1-6.1 2.3L14.5 15h-5l-1.4 1.8A3.5 3.5 0 0 1 2 14.5V10a3 3 0 0 1 3-3Z"/></svg>',
+  shield:
+    '<svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3v8Z"/><path d="m9 12 2 2 4-4"/></svg>',
+  sparkles:
+    '<svg viewBox="0 0 24 24"><path d="M12 3 10 9l-6 2 6 2 2 6 2-6 6-2-6-2-2-6Z"/><path d="M19 3v4"/><path d="M21 5h-4"/><path d="M5 17v4"/><path d="M7 19H3"/></svg>',
+  swords:
+    '<svg viewBox="0 0 24 24"><path d="m14.5 17.5 3 3 3-3-3-3"/><path d="m6.5 6.5 11 11"/><path d="m3 21 3-3"/><path d="m9.5 17.5-3 3-3-3 3-3"/><path d="m17.5 6.5-11 11"/><path d="m21 3-3 3"/></svg>',
+  users:
+    '<svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
 };
-
-const companyIcons = [Gamepad2, ShieldCheck, UsersRound];
 
 const copy = {
   ru: {
@@ -80,59 +70,6 @@ const copy = {
       text: "Установите игру из официального магазина и заходите за стол: подкидной и переводной Дурак доступны на смартфонах через App Store и Google Play.",
       googleSmall: "Доступно в",
       appleSmall: "Загрузите в",
-    },
-    footer: "DinqPlay Limited",
-  },
-  en: {
-    nav: {
-      studio: "Company",
-      game: "Game",
-      download: "Download",
-      aria: "Main navigation",
-    },
-    hero: {
-      eyebrow: "Mobile card game",
-      lead: "Fast online Durak for mobile players: classic rules, fair tables, and matches that start in just a few taps.",
-      modes: ["Throw-in", "Transfer", "2-6 players"],
-      download: "Download game",
-      watch: "View gameplay",
-      scene: "Durak Go gameplay screenshot",
-      screenshotAlt: "Gameplay screenshot from the Durak Go mobile game",
-      captionLabel: "Live gameplay",
-    },
-    facts: [
-      {
-        title: "Mobile development",
-        text: "DinqPlay Limited builds card games with quick entry, clear table logic, and stable online play.",
-      },
-      {
-        title: "Classic in digital",
-        text: "We keep the recognizable rules of Durak and carefully bring them into a modern mobile format.",
-      },
-      {
-        title: "Built for play",
-        text: "Durak Go is made for short matches, games with friends, and calm online competition.",
-      },
-    ],
-    studio: {
-      eyebrow: "About company",
-      title: "DinqPlay Limited creates mobile card games.",
-      paragraphs: [
-        "Our main project is Durak Go, an online Durak game for iOS and Android. We develop it as a clear, fast, and carefully designed mobile product.",
-        "The team focuses on a clean interface, stable online tables, and familiar rules that players can understand from the first match.",
-      ],
-      principles: [
-        "We design Durak Go around classic card mechanics without unnecessary arcade layers.",
-        "We develop the interface and online tables so each match feels natural on a phone.",
-        "We support the game on iOS and Android through the official app stores.",
-      ],
-    },
-    release: {
-      eyebrow: "Where to download",
-      title: "Durak Go is available on iOS and Android",
-      text: "Install the game from the official store and join a table: throw-in and transfer Durak are available on smartphones through App Store and Google Play.",
-      googleSmall: "Available on",
-      appleSmall: "Download on the",
     },
     footer: "DinqPlay Limited",
   },
@@ -242,186 +179,147 @@ const copy = {
     },
     footer: "DinqPlay Limited",
   },
+  en: {
+    nav: {
+      studio: "Company",
+      game: "Game",
+      download: "Download",
+      aria: "Main navigation",
+    },
+    hero: {
+      eyebrow: "Mobile card game",
+      lead: "Fast online Durak for mobile players: classic rules, fair tables, and matches that start in just a few taps.",
+      modes: ["Throw-in", "Transfer", "2-6 players"],
+      download: "Download game",
+      watch: "View gameplay",
+      scene: "Durak Go gameplay screenshot",
+      screenshotAlt: "Gameplay screenshot from the Durak Go mobile game",
+      captionLabel: "Live gameplay",
+    },
+    facts: [
+      {
+        title: "Mobile development",
+        text: "DinqPlay Limited builds card games with quick entry, clear table logic, and stable online play.",
+      },
+      {
+        title: "Classic in digital",
+        text: "We keep the recognizable rules of Durak and carefully bring them into a modern mobile format.",
+      },
+      {
+        title: "Built for play",
+        text: "Durak Go is made for short matches, games with friends, and calm online competition.",
+      },
+    ],
+    studio: {
+      eyebrow: "About company",
+      title: "DinqPlay Limited creates mobile card games.",
+      paragraphs: [
+        "Our main project is Durak Go, an online Durak game for iOS and Android. We develop it as a clear, fast, and carefully designed mobile product.",
+        "The team focuses on a clean interface, stable online tables, and familiar rules that players can understand from the first match.",
+      ],
+      principles: [
+        "We design Durak Go around classic card mechanics without unnecessary arcade layers.",
+        "We develop the interface and online tables so each match feels natural on a phone.",
+        "We support the game on iOS and Android through the official app stores.",
+      ],
+    },
+    release: {
+      eyebrow: "Where to download",
+      title: "Durak Go is available on iOS and Android",
+      text: "Install the game from the official store and join a table: throw-in and transfer Durak are available on smartphones through App Store and Google Play.",
+      googleSmall: "Available on",
+      appleSmall: "Download on the",
+    },
+    footer: "DinqPlay Limited",
+  },
 };
 
-export default function Home() {
-  const [language, setLanguage] = useState<Language>("ru");
-  const t = copy[language];
-
-  return (
-    <main>
-      <section className="company-hero" id="top">
-        <nav className="nav" aria-label={t.nav.aria}>
-          <a className="brand" href="#top" aria-label="Durak Go">
-            <span className="brand-mark">
-              <Image
-                src="/durak-go-icon.jpg"
-                alt=""
-                width={46}
-                height={46}
-                priority
-              />
-            </span>
-            <span>Durak Go</span>
-          </a>
-          <div className="nav-links">
-            <a href="#studio">{t.nav.studio}</a>
-            <a href="#game">{t.nav.game}</a>
-            <a href="#release">{t.nav.download}</a>
-          </div>
-          <div className="language-switch" aria-label="Language switcher">
-            {languages.map((item) => (
-              <button
-                aria-pressed={language === item.code}
-                className={language === item.code ? "active" : undefined}
-                key={item.code}
-                onClick={() => setLanguage(item.code)}
-                type="button"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        <section className="studio-section studio-section-first" id="studio">
-          <div className="studio-copy">
-            <p className="eyebrow">{t.studio.eyebrow}</p>
-            <h2>{t.studio.title}</h2>
-            {t.studio.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <div className="company-panel">
-            <div className="company-panel-head">
-              <span>{t.nav.studio}</span>
-              <strong>DinqPlay Limited</strong>
-            </div>
-            {t.studio.principles.map((item) => (
-              <div className="principle" key={item}>
-                <BadgeCheck size={21} aria-hidden="true" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      </section>
-
-      <section className="hero game-hero" id="game">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              <Sparkles size={16} aria-hidden="true" />
-              {t.hero.eyebrow}
-            </p>
-            <h1 className="game-title">Durak Go</h1>
-            <p className="hero-lead">{t.hero.lead}</p>
-            <div className="mode-row" aria-label={t.nav.game}>
-              {t.hero.modes.map((mode) => (
-                <span key={mode}>{mode}</span>
-              ))}
-            </div>
-            <div className="hero-actions">
-              <a className="primary-button" href="#release">
-                <Download size={18} aria-hidden="true" />
-                {t.hero.download}
-              </a>
-              <a className="ghost-button" href="#game">
-                {t.hero.watch}
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-
-          <div className="game-scene" aria-label={t.hero.scene}>
-            <div className="game-phone">
-              <Image
-                src="/durak-go-gameplay.png"
-                alt={t.hero.screenshotAlt}
-                width={945}
-                height={2048}
-                priority
-              />
-            </div>
-            <div className="screen-caption">
-              <span>{t.hero.captionLabel}</span>
-              <strong>Durak Go</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="highlight-strip" id="features">
-        {t.facts.map((item, index) => {
-          const Icon = companyIcons[index];
-
-          return (
-            <article key={item.title}>
-              <Icon size={22} aria-hidden="true" />
-              <div>
-                <h2>{item.title}</h2>
-                <p>{item.text}</p>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-
-      <section className="release-section" id="release">
-        <div className="release-copy">
-          <p className="eyebrow">{t.release.eyebrow}</p>
-          <h2>{t.release.title}</h2>
-          <p>{t.release.text}</p>
-        </div>
-        <div className="release-actions">
-          <a
-            className="store-badge"
-            href={storeLinks.googlePlay}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="store-icon">
-              <Image
-                src="/google-play-icon.png"
-                alt=""
-                width={28}
-                height={28}
-              />
-            </span>
-            <span>
-              <small>{t.release.googleSmall}</small>
-              Google Play
-            </span>
-          </a>
-          <a
-            className="store-badge accent"
-            href={storeLinks.appStore}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="store-icon">
-              <Image src="/app-store-icon.png" alt="" width={28} height={28} />
-            </span>
-            <span>
-              <small>{t.release.appleSmall}</small>
-              App Store
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <a className="brand" href="#top" aria-label="Durak Go">
-          <span className="brand-mark">
-            <Image src="/durak-go-icon.jpg" alt="" width={46} height={46} />
-          </span>
-          <span>Durak Go</span>
-        </a>
-        <span>
-          <Swords size={17} aria-hidden="true" />
-          {t.footer}
-        </span>
-      </footer>
-    </main>
-  );
+function getValue(path, language) {
+  return path.split(".").reduce((value, key) => value?.[key], copy[language]);
 }
+
+function renderList(element, path, language) {
+  const value = getValue(path, language);
+
+  if (path === "studio.paragraphs") {
+    element.innerHTML = value.map((paragraph) => `<p>${paragraph}</p>`).join("");
+    return;
+  }
+
+  if (path === "studio.principles") {
+    element.innerHTML = value
+      .map(
+        (item) => `
+          <div class="principle">
+            <span class="icon" aria-hidden="true">${icons.check}</span>
+            <span>${item}</span>
+          </div>
+        `,
+      )
+      .join("");
+    return;
+  }
+
+  if (path === "hero.modes") {
+    element.innerHTML = value.map((mode) => `<span>${mode}</span>`).join("");
+    return;
+  }
+
+  if (path === "facts") {
+    const factIcons = ["gamepad", "shield", "users"];
+    element.innerHTML = value
+      .map(
+        (item, index) => `
+          <article>
+            <span class="icon" aria-hidden="true">${icons[factIcons[index]]}</span>
+            <div>
+              <h2>${item.title}</h2>
+              <p>${item.text}</p>
+            </div>
+          </article>
+        `,
+      )
+      .join("");
+  }
+}
+
+function setLanguage(language) {
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = getValue(element.dataset.i18n, language);
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    element.setAttribute("aria-label", getValue(element.dataset.i18nAria, language));
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    element.setAttribute("alt", getValue(element.dataset.i18nAlt, language));
+  });
+
+  document.querySelectorAll("[data-i18n-list]").forEach((element) => {
+    renderList(element, element.dataset.i18nList, language);
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    const isActive = button.dataset.lang === language;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+document.querySelectorAll("[data-icon]").forEach((element) => {
+  element.innerHTML = icons[element.dataset.icon] ?? "";
+});
+
+document.querySelectorAll("[data-lang]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const language = button.dataset.lang;
+    if (languages.includes(language)) {
+      setLanguage(language);
+    }
+  });
+});
+
+setLanguage("ru");

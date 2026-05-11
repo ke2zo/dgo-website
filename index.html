@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DinqPlay Limited creates Durak Go, a mobile online card game for iOS and Android."
+    />
+    <title>Durak Go | DinqPlay Limited</title>
+    <link rel="icon" href="public/durak-go-icon.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="company-hero" id="top">
+        <nav class="nav" data-i18n-aria="nav.aria">
+          <a class="brand" href="#top" aria-label="Durak Go">
+            <span class="brand-mark">
+              <img src="public/durak-go-icon.jpg" alt="" width="46" height="46" />
+            </span>
+            <span>Durak Go</span>
+          </a>
+          <div class="nav-links">
+            <a href="#studio" data-i18n="nav.studio"></a>
+            <a href="#game" data-i18n="nav.game"></a>
+            <a href="#release" data-i18n="nav.download"></a>
+          </div>
+          <div class="language-switch" aria-label="Language switcher">
+            <button class="active" type="button" data-lang="ru" aria-pressed="true">RU</button>
+            <button type="button" data-lang="kz" aria-pressed="false">KZ</button>
+            <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </nav>
+
+        <section class="studio-section studio-section-first" id="studio">
+          <div class="studio-copy">
+            <p class="eyebrow" data-i18n="studio.eyebrow"></p>
+            <h2 data-i18n="studio.title"></h2>
+            <div data-i18n-list="studio.paragraphs"></div>
+          </div>
+          <div class="company-panel">
+            <div class="company-panel-head">
+              <span data-i18n="nav.studio"></span>
+              <strong>DinqPlay Limited</strong>
+            </div>
+            <div data-i18n-list="studio.principles"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="hero game-hero" id="game">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="icon" aria-hidden="true" data-icon="sparkles"></span>
+              <span data-i18n="hero.eyebrow"></span>
+            </p>
+            <h1 class="game-title">Durak Go</h1>
+            <p class="hero-lead" data-i18n="hero.lead"></p>
+            <div class="mode-row" data-i18n-list="hero.modes"></div>
+            <div class="hero-actions">
+              <a class="primary-button" href="#release">
+                <span class="icon" aria-hidden="true" data-icon="download"></span>
+                <span data-i18n="hero.download"></span>
+              </a>
+              <a class="ghost-button" href="#game">
+                <span data-i18n="hero.watch"></span>
+                <span class="icon" aria-hidden="true" data-icon="arrow-up-right"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="game-scene" data-i18n-aria="hero.scene">
+            <div class="game-phone">
+              <img
+                src="public/durak-go-gameplay.png"
+                alt=""
+                data-i18n-alt="hero.screenshotAlt"
+                width="945"
+                height="2048"
+              />
+            </div>
+            <div class="screen-caption">
+              <span data-i18n="hero.captionLabel"></span>
+              <strong>Durak Go</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlight-strip" id="features" data-i18n-list="facts"></section>
+
+      <section class="release-section" id="release">
+        <div class="release-copy">
+          <p class="eyebrow" data-i18n="release.eyebrow"></p>
+          <h2 data-i18n="release.title"></h2>
+          <p data-i18n="release.text"></p>
+        </div>
+        <div class="release-actions">
+          <a
+            class="store-badge"
+            href="https://play.google.com/store/apps/details?id=com.durakgo.game"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="store-icon">
+              <img src="public/google-play-icon.png" alt="" width="28" height="28" />
+            </span>
+            <span>
+              <small data-i18n="release.googleSmall"></small>
+              Google Play
+            </span>
+          </a>
+          <a
+            class="store-badge accent"
+            href="https://apps.apple.com/kz/app/durak-go/id6762427053"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="store-icon">
+              <img src="public/app-store-icon.png" alt="" width="28" height="28" />
+            </span>
+            <span>
+              <small data-i18n="release.appleSmall"></small>
+              App Store
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a class="brand" href="#top" aria-label="Durak Go">
+          <span class="brand-mark">
+            <img src="public/durak-go-icon.jpg" alt="" width="46" height="46" />
+          </span>
+          <span>Durak Go</span>
+        </a>
+        <span>
+          <span class="icon" aria-hidden="true" data-icon="swords"></span>
+          <span data-i18n="footer"></span>
+        </span>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
